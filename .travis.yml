@@ -1,3 +1,4 @@
+lang: python
 compiler: gcc
 sudo: require
 dist: trusty

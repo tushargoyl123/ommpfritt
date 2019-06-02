@@ -1,11 +1,7 @@
-lang: python
 compiler: gcc
 sudo: require
 dist: trusty
 
-python:
-  - "3.6"
-  
 env:
   global:
     - PYBIND11_VERSION="2.2.4"
@@ -24,7 +20,8 @@ install:
 
 script:
   - cd $pybind11_DIR
-  - cmake . && make && sudo make install
+  - cmake -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=$(python-config --prefix)/bin/python3.5 -DPYTHON_LIBRARY=$(python-config --prefix)/lib/libpython3.5m.so -DPYTHON_INCLUDE_DIR=$(python-config --prefix)/include/python3.5m .. 
+  - make && sudo make install
   - find $pybind11_DIR
   - cd -
   - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH=$pybind11_DIR

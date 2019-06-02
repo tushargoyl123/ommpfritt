@@ -14,13 +14,14 @@ before_install:
   - mv pybind11-${PYBIND11_VERSION} ${HOME}
   - export PYBIND11_ROOT=$HOME/pybind11-${PYBIND11_VERSION}
   - export pybind11_DIR=$PYBIND11_ROOT
+  - find $pybind11_DIR
   
 install:
   - sudo apt-get -y install qt59base libgl1-mesa-dev libarmadillo-dev libgoogle-glog-dev python3
   - source /opt/qt*/bin/qt*-env.sh
 
 script:
-  - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+  - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH=$pybind11_DIR
   - make -j$(nproc)
   - make DESTDIR=appdir -j$(nproc) install ; find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"

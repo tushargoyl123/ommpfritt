@@ -2,6 +2,9 @@ compiler: gcc
 sudo: require
 dist: trusty
 
+python:
+  - "3.6"
+  
 env:
   global:
     - PYBIND11_VERSION="2.2.4"

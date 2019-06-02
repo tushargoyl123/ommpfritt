@@ -1,31 +1,31 @@
-language: cpp
-
-dist: xenial
+compiler: gcc
+sudo: require
+dist: trusty
 
 before_install:
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic main'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic universe'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic multiverse'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic restricted'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic-security main'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic-security universe'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic-security multiverse'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic-security restricted'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic-updates main'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic-updates universe'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic-updates multiverse'
-  - sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic-updates restricted'
-  - sudo apt-get update
-  - sudo apt-get install -y python3-pybind11 pybind11-dev qt5-default libarmadillo-dev libgoogle-glog-dev python3
+  - sudo add-apt-repository ppa:beineri/opt-qt593-trusty -y
+  - sudo apt-get update -qq
 
-compiler:
-  - clang
-  - gcc
-
-before_script:
-  - mkdir build
-  - cd build
-  - cmake ..
+install:
+  - sudo apt-get -y install qt59base libgl1-mesa-dev python3-pybind11 pybind11-dev libarmadillo-dev libgoogle-glog-dev python3
+  - source /opt/qt*/bin/qt*-env.sh
 
 script:
-  - make
+  - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+  - make -j$(nproc)
+  - make DESTDIR=appdir -j$(nproc) install ; find appdir/
+  - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+  - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
+  # export VERSION=... # linuxdeployqt uses this for naming the file
+  - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage
+
+after_success:
+  # find appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq # for debugging
+  # curl --upload-file APPNAME*.AppImage https://transfer.sh/APPNAME-git.$(git rev-parse --short HEAD)-x86_64.AppImage
+  - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+  - bash upload.sh APPNAME*.AppImage*
+  
+branches:
+  except:
+    - # Do not build tags that we create when we upload to GitHub Releases
+    - /^(?i:continuous)/

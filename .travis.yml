@@ -13,6 +13,7 @@ before_install:
   - tar xf v${PYBIND11_VERSION}.tar.gz
   - mv pybind11-${PYBIND11_VERSION} ${HOME}
   - export PYBIND11_ROOT=$HOME/pybind11-${PYBIND11_VERSION}
+  - export pybind11_DIR=$PYBIND11_ROOT
   
 install:
   - sudo apt-get -y install qt59base libgl1-mesa-dev libarmadillo-dev libgoogle-glog-dev python3

@@ -952,6 +952,14 @@ Remove the selected items anyway?</translation>
         <source>decoration</source>
         <translation>Decoration</translation>
     </message>
+    <message>
+        <source>this</source>
+        <translation>this</translation>
+    </message>
+    <message>
+        <source>anchor</source>
+        <translation>Anchor</translation>
+    </message>
 </context>
 <context>
     <name>ReferenceProperty</name>

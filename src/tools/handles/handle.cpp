@@ -2,6 +2,7 @@
 #include "renderers/painter.h"
 #include <QMouseEvent>
 #include "tools/tool.h"
+#include "scene/scene.h"
 
 namespace omm
 {
@@ -27,6 +28,7 @@ bool Handle::mouse_press(const Vec2f& pos, const QMouseEvent& event, bool force)
 
 bool Handle::mouse_move(const Vec2f& delta, const Vec2f& pos, const QMouseEvent&)
 {
+  const auto old_status = m_status;
   Q_UNUSED(delta);
   if (m_status != Status::Active) {
     if (contains_global(pos)) {
@@ -34,6 +36,9 @@ bool Handle::mouse_move(const Vec2f& delta, const Vec2f& pos, const QMouseEvent&
     } else {
       m_status = Status::Inactive;
     }
+  }
+  if (m_status != old_status) {
+    tool.scene.repaint();
   }
   return false;
 }
@@ -79,7 +84,7 @@ void Handle::discretize(Vec2f& vec) const
 {
   if (tool.integer_transformation()) {
     vec = tool.viewport_transformation.inverted().apply_to_direction(vec);
-    static constexpr double step = 50.0;
+    static constexpr double step = 10.0;
     for (auto i : { 0u, 1u }) {
       vec[i] = step * static_cast<int>(vec[i] / step);
     }

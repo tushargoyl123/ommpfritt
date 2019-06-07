@@ -952,6 +952,14 @@ Soll die Selektion troztdem entfernt werden?</translation>
         <source>decoration</source>
         <translation>Dekoration</translation>
     </message>
+    <message>
+        <source>this</source>
+        <translation>Dieses</translation>
+    </message>
+    <message>
+        <source>anchor</source>
+        <translation>Anker</translation>
+    </message>
 </context>
 <context>
     <name>ReferenceProperty</name>

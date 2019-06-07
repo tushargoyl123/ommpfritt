@@ -16,8 +16,8 @@ before_install:
   - export pybind11_DIR=$HOME/pybind11-${PYBIND11_VERSION}
   
 install:
-  - sudo apt-get -y install libgl-dev python3-dev libpoppler-qt5-dev g++-8
-  - source /opt/qt*/bin/qt*-env.sh
+  - sudo apt-get -y install libgl-dev python3-dev libpoppler-qt5-dev g++-8 qt512tools qt512translations qt512svg qt512base qt512imageformats
+  - source /opt/qt*/bin/qt*-env.sh # Why does this not work anymore?
 
 script:
   - wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz

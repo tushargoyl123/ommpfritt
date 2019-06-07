@@ -1,13 +1,14 @@
 compiler: gcc
 sudo: require
-dist: trusty
+dist: xenial
 
 env:
   global:
     - PYBIND11_VERSION="2.2.4"
 
 before_install:
-  - sudo add-apt-repository ppa:beineri/opt-qt593-trusty -y
+  - sudo apt-add-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-add-repository ppa:beineri/opt-qt-5.12.3-xenial -y
   - sudo apt-get update -qq
   - wget https://github.com/pybind/pybind11/archive/v${PYBIND11_VERSION}.tar.gz
   - tar xf v${PYBIND11_VERSION}.tar.gz
@@ -15,16 +16,22 @@ before_install:
   - export pybind11_DIR=$HOME/pybind11-${PYBIND11_VERSION}
   
 install:
-  - sudo apt-get -y install qt59base libgl1-mesa-dev libarmadillo-dev libgoogle-glog-dev python3
+  - sudo apt-get -y install libgl-dev python3-dev libpoppler-qt5-dev g++-8
   - source /opt/qt*/bin/qt*-env.sh
 
 script:
+  - wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
+  - tar xvf Python-3.7.0.tar.xz
+  - cd Python-3.7.0
+  - ./configure
+  - sudo make altinstall
+  - cd -
   - mkdir -p $pybind11_DIR/build && cd $pybind11_DIR/build
   - cmake -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=$(python-config --prefix)/bin/python3.5 -DPYTHON_LIBRARY=$(python-config --prefix)/lib/libpython3.5m.so -DPYTHON_INCLUDE_DIR=$(python-config --prefix)/include/python3.5m .. 
   - make && sudo make install
   - find $pybind11_DIR
   - cd -
-  - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH=$pybind11_DIR/build
+  - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++-8 -DQT_QM_PATH=/opt/qt512/translations -DCMAKE_PREFIX_PATH=/opt/qt512 -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH=$pybind11_DIR/build
   - make -j$(nproc)
   - make DESTDIR=appdir -j$(nproc) install ; find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"

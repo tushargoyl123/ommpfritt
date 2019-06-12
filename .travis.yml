@@ -26,12 +26,9 @@ script:
   - ./configure
   - sudo make altinstall
   - cd -
-  - mkdir -p $pybind11_DIR/build && cd $pybind11_DIR/build
-  - cmake -DCMAKE_BUILD_TYPE=Release -DPYTHON_EXECUTABLE=$(python-config --prefix)/bin/python3.5 -DPYTHON_LIBRARY=$(python-config --prefix)/lib/libpython3.5m.so -DPYTHON_INCLUDE_DIR=$(python-config --prefix)/include/python3.5m .. 
-  - make && sudo make install
-  - find $pybind11_DIR
+  - mkdir -p $pybind11_DIR/build && cd $pybind11_DIR/build && cmake .. && sudo make install
   - cd -
-  - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++-8 -DQT_QM_PATH=/opt/qt512/translations -DCMAKE_PREFIX_PATH=/opt/qt512 -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH=$pybind11_DIR/build
+  - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++-8 -DQT_QM_PATH=/opt/qt512/translations -DCMAKE_PREFIX_PATH=/opt/qt512 -DCMAKE_INSTALL_PREFIX=/usr # -DCMAKE_PREFIX_PATH=$pybind11_DIR/build
   - make -j$(nproc)
   - make DESTDIR=appdir -j$(nproc) install ; find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"

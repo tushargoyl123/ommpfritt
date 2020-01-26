@@ -6,7 +6,7 @@
 namespace omm
 {
 
-class PathTag : public Tag
+class PathTag : public Tag::Registrar<PathTag>
 {
 public:
   explicit PathTag(Object& owner);

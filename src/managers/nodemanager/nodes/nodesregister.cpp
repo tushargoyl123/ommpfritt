@@ -14,20 +14,20 @@ namespace omm
 
 void register_nodes()
 {
-#define REGISTER_NODE(TYPE) Node::register_type<TYPE>(#TYPE); \
-  Node::m_details[#TYPE] = &TYPE::detail
+//#define REGISTER_NODE(TYPE) Node::register_type<TYPE>(#TYPE); \
+//  Node::m_details[#TYPE] = &TYPE::detail
 
-  REGISTER_NODE(ReferenceNode);
-  REGISTER_NODE(MathNode);
-  REGISTER_NODE(SpyNode);
-  REGISTER_NODE(ConstantNode);
-  REGISTER_NODE(DecomposeNode);
-  REGISTER_NODE(ComposeNode);
-  REGISTER_NODE(FragmentNode);
-  REGISTER_NODE(DecomposeColorNode);
-  REGISTER_NODE(ComposeColorNode);
-  REGISTER_NODE(VertexNode);
-#undef REGISTER_NODE
+//  REGISTER_NODE(ReferenceNode);
+//  REGISTER_NODE(MathNode);
+//  REGISTER_NODE(SpyNode);
+//  REGISTER_NODE(ConstantNode);
+//  REGISTER_NODE(DecomposeNode);
+//  REGISTER_NODE(ComposeNode);
+//  REGISTER_NODE(FragmentNode);
+//  REGISTER_NODE(DecomposeColorNode);
+//  REGISTER_NODE(ComposeColorNode);
+//  REGISTER_NODE(VertexNode);
+//#undef REGISTER_NODE
 }
 
 }  // namespace omm

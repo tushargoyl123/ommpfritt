@@ -16,8 +16,7 @@ namespace omm
 
 class Style;
 
-Instance::Instance(Scene* scene)
-  : Object(scene)
+Instance::Instance(Scene* scene) : Object::Registrar<Instance>(scene)
 {
   static const auto category = QObject::tr("Instance");
   create_property<ReferenceProperty>(REFERENCE_PROPERTY_KEY)
@@ -28,7 +27,7 @@ Instance::Instance(Scene* scene)
   polish();
 }
 
-Instance::Instance(const Instance &other) : Object(other)
+Instance::Instance(const Instance &other) : Object::Registrar<Instance>(other)
 {
   polish();
 }

@@ -9,7 +9,8 @@ namespace omm
 
 class AbstractTextEditAdapter;
 
-class StringPropertyWidget : public PropertyWidget<StringProperty>
+class StringPropertyWidget
+    : public AbstractPropertyWidget::Registrar<StringPropertyWidget, PropertyWidget<StringProperty>>
 {
 public:
   explicit StringPropertyWidget(Scene& scene, const std::set<Property*>& properties);

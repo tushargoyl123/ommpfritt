@@ -13,7 +13,7 @@ namespace omm
 class CodeEdit;
 class ReferenceLineEdit;
 
-class PythonConsole : public Manager
+class PythonConsole : public Manager::Registrar<PythonConsole>
 {
   Q_OBJECT
 public:

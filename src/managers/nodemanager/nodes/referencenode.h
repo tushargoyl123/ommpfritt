@@ -21,7 +21,7 @@ public:
   QString title() const override;
   AbstractPort& add_forwarding_port(PortType port_type, const QString& key);
   std::unique_ptr<AbstractPort> remove_forwarding_port(PortType port_type, const QString& key);
-  static const Detail detail;
+  static StaticNodeInfo static_info();
 
 protected:
   void on_property_value_changed(Property* property) override;

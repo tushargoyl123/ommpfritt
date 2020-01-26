@@ -7,11 +7,13 @@
 namespace omm
 {
 
-class JSONSerializer : public AbstractSerializer
+class JSONSerializer : public AbstractSerializer::Registrar<JSONSerializer>
 {
 public:
   explicit JSONSerializer(std::ostream& ostream);
   ~JSONSerializer();
+
+  static constexpr auto TYPE = "JSONSerializer";
 
   void start_array(size_t size, const Pointer& pointer) override;
   void end_array() override;
@@ -33,10 +35,11 @@ private:
   std::ostream& m_ostream;
 };
 
-class JSONDeserializer : public AbstractDeserializer
+class JSONDeserializer : public AbstractDeserializer::Registrar<JSONDeserializer>
 {
 public:
   explicit JSONDeserializer(std::istream& istream);
+  static constexpr auto TYPE = "JSONDeserializer";
 
   // there is no virtual template, unfortunately: https://stackoverflow.com/q/2354210/4248972
   size_t array_size(const Pointer& pointer) override;

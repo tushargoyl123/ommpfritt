@@ -56,7 +56,7 @@ QString NodeCompilerPython::compile_connection(const OutputPort& op, const Input
 
 QString NodeCompilerPython::define_node(const QString& node_type) const
 {
-  return Node::detail(node_type).definitions.at(language);
+  return Node::static_info(node_type).definitions.at(language);
 }
 
 }  // namespace omm

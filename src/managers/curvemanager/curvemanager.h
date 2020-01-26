@@ -13,7 +13,7 @@ class CurveManagerTitleBar;
 class CurveManagerWidget;
 class QuickAccessDelegate;
 
-class CurveManager : public Manager
+class CurveManager : public Manager::Registrar<CurveManager>
 {
   Q_OBJECT
 public:

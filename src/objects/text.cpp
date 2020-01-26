@@ -12,7 +12,9 @@ namespace omm
 class Style;
 
 Text::Text(Scene* scene)
-  : Object(scene), m_font_properties("", *this), m_text_option_properties("", *this)
+  : Object::Registrar<Text>(scene)
+  , m_font_properties("", *this)
+  , m_text_option_properties("", *this)
 {
   static const auto text_category = QObject::tr("Text");
   create_property<StringProperty>(TEXT_PROPERTY_KEY, "Text" )
@@ -27,7 +29,9 @@ Text::Text(Scene* scene)
 }
 
 Text::Text(const Text &other)
-  : Object(other), m_font_properties("", *this), m_text_option_properties("", *this)
+  : Object::Registrar<Text>(other)
+  , m_font_properties("", *this)
+  , m_text_option_properties("", *this)
 {
 }
 

@@ -5,8 +5,6 @@
 namespace omm
 {
 
-std::map<QString, const Node::Detail*> Node::m_details;
-
 Node::Node(NodeModel& model)
   : PropertyOwner(&model.scene())
   , m_model(model)

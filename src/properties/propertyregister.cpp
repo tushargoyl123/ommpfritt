@@ -14,18 +14,18 @@ namespace omm
 void register_properties()
 {
 #define REGISTER_PROPERTY(TYPE)\
-  Property::register_type<TYPE>(#TYPE); \
-  Property::m_details[#TYPE] = &TYPE::detail;
+//  Property::register_type<TYPE>(#TYPE); \
+//  Property::m_details[#TYPE] = &TYPE::detail;
 
-  REGISTER_PROPERTY(BoolProperty);
-  REGISTER_PROPERTY(ColorProperty);
-  REGISTER_PROPERTY(FloatProperty);
-  REGISTER_PROPERTY(IntegerProperty);
-  REGISTER_PROPERTY(ReferenceProperty);
-  REGISTER_PROPERTY(StringProperty);
-  REGISTER_PROPERTY(OptionsProperty);
-  REGISTER_PROPERTY(FloatVectorProperty);
-  REGISTER_PROPERTY(IntegerVectorProperty);
+//  REGISTER_PROPERTY(BoolProperty);
+//  REGISTER_PROPERTY(ColorProperty);
+//  REGISTER_PROPERTY(FloatProperty);
+//  REGISTER_PROPERTY(IntegerProperty);
+//  REGISTER_PROPERTY(ReferenceProperty);
+//  REGISTER_PROPERTY(StringProperty);
+//  REGISTER_PROPERTY(OptionsProperty);
+//  REGISTER_PROPERTY(FloatVectorProperty);
+//  REGISTER_PROPERTY(IntegerVectorProperty);
 
 #undef REGISTER_PROPERTY
 }

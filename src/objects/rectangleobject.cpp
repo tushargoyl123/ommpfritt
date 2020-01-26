@@ -6,7 +6,7 @@ namespace omm
 {
 
 RectangleObject::RectangleObject(Scene *scene)
-  : AbstractProceduralPath(scene)
+  : Object::Registrar<RectangleObject, AbstractProceduralPath>(scene)
 {
   static const auto category = QObject::tr("rectangle");
   create_property<FloatVectorProperty>(SIZE_PROPERTY_KEY, Vec2f(200.0, 200.0) )

@@ -8,7 +8,8 @@ namespace omm
 
 class OptionsEdit;
 
-class OptionsPropertyWidget : public PropertyWidget<OptionsProperty>
+class OptionsPropertyWidget
+    : public AbstractPropertyWidget::Registrar<OptionsPropertyWidget, PropertyWidget<OptionsProperty>>
 {
 public:
   explicit OptionsPropertyWidget(Scene& scene, const std::set<Property*>& properties);

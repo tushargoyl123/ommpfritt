@@ -26,7 +26,7 @@ namespace omm
 
 ReferencePropertyWidget
 ::ReferencePropertyWidget(Scene& scene, const std::set<Property*>& properties)
-  : PropertyWidget(scene, properties)
+  : AbstractPropertyWidget::Registrar<ReferencePropertyWidget, PropertyWidget<ReferenceProperty>>(scene, properties)
 {
   auto line_edit = std::make_unique<ReferenceLineEdit>();
   line_edit->set_scene(scene);

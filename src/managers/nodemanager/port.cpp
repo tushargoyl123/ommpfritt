@@ -94,6 +94,17 @@ QString AbstractPort::uuid() const
 {
   std::stringstream ss;
   ss << static_cast<const void*>(this);
+
+  switch (port_type) {
+  case PortType::Input:
+    return "i_" + label() + "_" + QString::fromStdString(ss.str()).right(5);
+  case PortType::Output:
+    return "o_" + label() + "_" + QString::fromStdString(ss.str()).right(5);
+  default:
+    Q_UNREACHABLE();
+    return "";
+  }
+
   return "p" + QString::fromStdString(ss.str());
 }
 

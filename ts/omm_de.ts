@@ -526,40 +526,12 @@
         <translation>Konvertieren</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>Linear</translation>
-    </message>
-    <message>
-        <source>Grid</source>
-        <translation>Raster</translation>
-    </message>
-    <message>
-        <source>Radial</source>
-        <translation>Radial</translation>
-    </message>
-    <message>
         <source>Path</source>
         <translation>Pfad</translation>
     </message>
     <message>
-        <source>Script</source>
-        <translation>Skript</translation>
-    </message>
-    <message>
-        <source>mode</source>
-        <translation>Modus</translation>
-    </message>
-    <message>
-        <source>Cloner</source>
-        <translation>Kloner</translation>
-    </message>
-    <message>
         <source>count</source>
         <translation>Anzahl</translation>
-    </message>
-    <message>
-        <source>distance</source>
-        <translation>Abstand</translation>
     </message>
     <message>
         <source>radius</source>
@@ -570,36 +542,12 @@
         <translation>Pfad</translation>
     </message>
     <message>
-        <source>start</source>
-        <translation>Start</translation>
-    </message>
-    <message>
-        <source>end</source>
-        <translation>Ende</translation>
-    </message>
-    <message>
         <source>align</source>
         <translation>Ausrichten</translation>
     </message>
     <message>
-        <source>Clamp</source>
-        <translation>Abscheiden</translation>
-    </message>
-    <message>
         <source>Wrap</source>
         <translation>Wiederholen</translation>
-    </message>
-    <message>
-        <source>Hide</source>
-        <translation>Verstecken</translation>
-    </message>
-    <message>
-        <source>Reflect</source>
-        <translation>Reflektieren</translation>
-    </message>
-    <message>
-        <source>border</source>
-        <translation>Rand</translation>
     </message>
     <message>
         <source>code</source>
@@ -1095,14 +1043,6 @@ Soll die Selektion trotzdem entfernt werden?</translation>
         <translation>Text</translation>
     </message>
     <message>
-        <source>Fill Random</source>
-        <translation>Zufällig füllen</translation>
-    </message>
-    <message>
-        <source>seed</source>
-        <translation>Seed</translation>
-    </message>
-    <message>
         <source>length</source>
         <translation>Länge</translation>
     </message>
@@ -1249,14 +1189,6 @@ Soll die Selektion trotzdem entfernt werden?</translation>
     <message>
         <source>decoration</source>
         <translation>Dekoration</translation>
-    </message>
-    <message>
-        <source>this</source>
-        <translation>Dieses</translation>
-    </message>
-    <message>
-        <source>anchor</source>
-        <translation>Anker</translation>
     </message>
     <message>
         <source>Symmetric</source>
@@ -1447,6 +1379,74 @@ Soll die Selektion trotzdem entfernt werden?</translation>
     <message>
         <source>Edit style ...</source>
         <translation>Style bearbeiten ...</translation>
+    </message>
+    <message>
+        <source>Cloner</source>
+        <translation>Kloner</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Linear</translation>
+    </message>
+    <message>
+        <source>Grid</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Radial</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Script</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Fill Random</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>mode</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>distance</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>start</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>end</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Clamp</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Reflect</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>border</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>seed</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>this</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>anchor</source>
+        <translation></translation>
     </message>
 </context>
 <context>

@@ -26,7 +26,7 @@ namespace omm
 static constexpr auto unnamed_option_label = QT_TRANSLATE_NOOP( "OptionsPropertyConfigWidget",
                                                                 "Unnamed Option" );
 
-OptionsPropertyConfigWidget ::OptionsPropertyConfigWidget()
+OptionsPropertyConfigWidget::OptionsPropertyConfigWidget()
 {
   auto list_widget = std::make_unique<QListWidget>(this);
   m_list_widget = list_widget.get();

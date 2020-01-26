@@ -4,7 +4,7 @@
 namespace omm
 {
 
-class Tip : public AbstractProceduralPath
+class Tip : public Object::Registrar<Tip, AbstractProceduralPath>
 {
 public:
   explicit Tip(Scene *scene);

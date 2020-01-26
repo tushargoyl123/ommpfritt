@@ -5,20 +5,25 @@
 namespace omm
 {
 
-const Property::PropertyDetail ReferenceProperty::detail { nullptr };
+StaticPropertyInfo ReferenceProperty::static_info()
+{
+  return {
+    nullptr
+  };
+}
 
 using Flag = Flag;
 using Kind = Kind;
 
 ReferenceProperty::ReferenceProperty()
-  : TypedProperty(nullptr)
+  : Property::Registrar<ReferenceProperty, TypedProperty<AbstractPropertyOwner*>>(nullptr)
 {
   configuration[FILTER_POINTER] = Filter::accept_anything();
   set_default_value(nullptr);
 }
 
 ReferenceProperty::ReferenceProperty(const ReferenceProperty &other)
-  : TypedProperty<AbstractPropertyOwner *>(other)
+  : Property::Registrar<ReferenceProperty, TypedProperty<AbstractPropertyOwner*>>(other)
 {
   auto* value = this->value();
   if (value != nullptr) {

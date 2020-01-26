@@ -10,7 +10,7 @@ namespace omm
 
 class Scene;
 
-class Text : public Object
+class Text : public Object::Registrar<Text>
 {
 public:
   explicit Text(Scene* scene);

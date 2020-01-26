@@ -20,7 +20,7 @@ class PropertyView;
 class PropertyManagerTab;
 class PropertyManagerTitleBar;
 
-class PropertyManager : public Manager
+class PropertyManager : public Manager::Registrar<PropertyManager>
 {
   Q_OBJECT
 public:

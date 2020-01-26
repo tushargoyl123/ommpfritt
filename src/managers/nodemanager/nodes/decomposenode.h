@@ -18,7 +18,7 @@ public:
   QString title() const override;
   bool accepts_input_data_type(const QString& type, const InputPort& port) const override;
   QString type() const override { return TYPE; }
-  static const Detail detail;
+  static StaticNodeInfo static_info();
 
 private:
   OutputPort* m_output_x_port;

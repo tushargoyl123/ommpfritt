@@ -4,7 +4,7 @@
 namespace omm
 {
 
-class Line : public AbstractProceduralPath
+class Line : public Object::Registrar<Line, AbstractProceduralPath>
 {
 public:
   explicit Line(Scene* scene);

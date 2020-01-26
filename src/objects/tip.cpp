@@ -14,7 +14,7 @@ namespace omm
 {
 
 Tip::Tip(Scene *scene)
-  : AbstractProceduralPath(scene)
+  : Object::Registrar<Tip, AbstractProceduralPath>(scene)
   , m_marker_properties("", *this, default_marker_shape, default_marker_size)
 {
   const auto tip_category = QObject::tr("Tip");
@@ -23,7 +23,7 @@ Tip::Tip(Scene *scene)
 }
 
 Tip::Tip(const Tip &other)
-  : AbstractProceduralPath(other)
+  : Object::Registrar<Tip, AbstractProceduralPath>(other)
   , m_marker_properties("", *this, default_marker_shape, default_marker_size)
 {
 }

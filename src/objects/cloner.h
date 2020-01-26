@@ -12,11 +12,12 @@ class Property;
 class Tag;
 class Scene;
 
-class Cloner : public Object
+class Cloner : public Object::Registrar<Cloner>
 {
 public:
   explicit Cloner(Scene* scene);
-  explicit Cloner(const Cloner& other);
+  Cloner(const Cloner& other);
+  using Object::Registrar<Cloner>::Registrar;
   void draw_object(Painter& renderer, const Style& style, Painter::Options options) const override;
   BoundingBox bounding_box(const ObjectTransformation& transformation) const override;
   BoundingBox recursive_bounding_box(const ObjectTransformation& transformation) const override;

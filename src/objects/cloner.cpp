@@ -36,7 +36,7 @@ namespace omm
 
 class Style;
 
-Cloner::Cloner(Scene* scene) : Object(scene)
+Cloner::Cloner(Scene* scene) : Object::Registrar<Cloner>(scene)
 {
   static const auto category = QObject::tr("Cloner");
   auto& mode_property = create_property<OptionsProperty>(MODE_PROPERTY_KEY);
@@ -107,7 +107,7 @@ Cloner::Cloner(Scene* scene) : Object(scene)
   polish();
 }
 
-Cloner::Cloner(const Cloner &other) : Object(other)
+Cloner::Cloner(const Cloner &other) : Object::Registrar<Cloner>(other)
 {
   polish();
 }
@@ -245,7 +245,7 @@ void Cloner::update_property_visibility(Mode mode)
 }
 
 QString Cloner::type() const { return TYPE; }
-std::unique_ptr<Object> Cloner::clone() const { return std::make_unique<Cloner>(*this); }
+std::unique_ptr<Object> Cloner::clone() const { return nullptr; }
 Flag Cloner::flags() const
 {
   return Object::flags() | Flag::Convertible | Flag::HasScript;

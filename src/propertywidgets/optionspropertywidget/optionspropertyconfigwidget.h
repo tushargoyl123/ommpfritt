@@ -8,7 +8,8 @@ class QListWidget;
 namespace omm
 {
 
-class OptionsPropertyConfigWidget : public PropertyConfigWidget
+class OptionsPropertyConfigWidget
+    : public PropertyConfigWidget::Registrar<OptionsPropertyConfigWidget>
 {
 public:
   OptionsPropertyConfigWidget();

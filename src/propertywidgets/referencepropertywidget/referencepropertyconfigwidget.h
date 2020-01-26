@@ -10,7 +10,8 @@ class QCheckBox;
 namespace omm
 {
 
-class ReferencePropertyConfigWidget : public PropertyConfigWidget
+class ReferencePropertyConfigWidget
+    : public PropertyConfigWidget::Registrar<ReferencePropertyConfigWidget>
 {
   Q_OBJECT
 public:

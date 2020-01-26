@@ -17,7 +17,7 @@ class Painter;
 
 class Tool
   : public PropertyOwner<Kind::Tool>
-  , public AbstractFactory<QString, Tool, Scene&>
+  , public Factory<Tool, void, QString, Scene&>
 {
   Q_OBJECT
 public:

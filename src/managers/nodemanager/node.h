@@ -15,9 +15,14 @@ namespace omm
 class NodeModel;
 class Menu;
 
+struct StaticNodeInfo
+{
+  std::map<AbstractNodeCompiler::Language, QString> definitions;
+};
+
 class Node
   : public PropertyOwner<Kind::Node>
-  , public AbstractFactory<QString, Node, NodeModel&>
+  , public Factory<Node, StaticNodeInfo, QString, NodeModel&>
   , public ReferencePolisher
 {
   Q_OBJECT
@@ -122,16 +127,6 @@ private:
   friend void register_nodes();
   NodeModel& m_model;
 
-public:
-  struct Detail
-  {
-    std::map<AbstractNodeCompiler::Language, QString> definitions;
-  };
-
-  static const Detail& detail(const QString& name) { return *m_details.at(name); }
-
-private:
-  static std::map<QString, const Detail*> m_details;
 };
 
 void register_nodes();

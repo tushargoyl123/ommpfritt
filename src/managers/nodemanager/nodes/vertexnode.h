@@ -14,7 +14,7 @@ public:
   QString type() const override { return TYPE; }
   QString output_data_type(const OutputPort& port) const override;
 
-  static const Detail detail;
+  static StaticNodeInfo static_info();
   OrdinaryPort<PortType::Output>& position_port() const { return *m_position_port; }
 
 private:

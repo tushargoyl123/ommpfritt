@@ -7,7 +7,7 @@ namespace omm
 {
 
 DopeSheetManager::DopeSheetManager(Scene &scene)
-  : Manager(tr("Dope Sheet"), scene)
+  : Manager::Registrar<DopeSheetManager>(tr("Dope Sheet"), scene)
 {
   auto dope_sheet_view = std::make_unique<DopeSheetView>(scene.animator());
   m_dope_sheet_view = dope_sheet_view.get();

@@ -4,6 +4,10 @@
 namespace omm
 {
 
+Empty::Empty(Scene* scene) : Object::Registrar<Empty>(scene)
+{
+}
+
 BoundingBox Empty::bounding_box(const ObjectTransformation &transformation) const
 {
   const Vec2f o = transformation.apply_to_position(Vec2f::o());

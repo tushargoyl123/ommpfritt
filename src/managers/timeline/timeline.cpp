@@ -20,7 +20,7 @@ namespace omm
 {
 
 TimeLine::TimeLine(Scene &scene)
-  : Manager(QCoreApplication::translate("any-context", "TimeLine"), scene)
+  : Manager::Registrar<TimeLine>(QCoreApplication::translate("any-context", "TimeLine"), scene)
 {
   auto title_bar = std::make_unique<TimeLineTitleBar>(*this);
   m_title_bar = title_bar.get();

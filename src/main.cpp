@@ -1,4 +1,5 @@
 #include "mainwindow/application.h"
+#include "objects/cloner.h"
 #include "ommpfrittconfig.h"
 #include "properties/property.h"
 #include "propertywidgets/propertywidget.h"
@@ -18,6 +19,7 @@
 #include "logging.h"
 #include "animation/track.h"
 #include "managers/nodemanager/node.h"
+#include "objects/ellipse.h"
 
 auto load_translator(const QString& prefix, const QLocale& locale)
 {
@@ -55,16 +57,16 @@ int main (int argc, char *argv[])
   QCoreApplication::setOrganizationName(QObject::tr("omm"));
   QCoreApplication::setApplicationName(QObject::tr("ommpfritt"));
 
-  omm::register_properties();
-  omm::register_managers();
-  omm::register_propertywidgets();
-  omm::register_objects();
-  omm::register_tags();
-  omm::register_serializers();
-  omm::register_deserializers();
-  omm::register_propertyconfigwidgets();
-  omm::register_tools();
-  omm::register_nodes();
+//  omm::register_properties();
+//  omm::register_managers();
+//  omm::register_propertywidgets();
+//  omm::register_objects();
+//  omm::register_tags();
+//  omm::register_serializers();
+//  omm::register_deserializers();
+//  omm::register_propertyconfigwidgets();
+//  omm::register_tools();
+//  omm::register_nodes();
 
   QApplication qt_app(argc, argv);
 

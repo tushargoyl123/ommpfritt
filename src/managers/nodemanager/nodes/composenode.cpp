@@ -6,15 +6,20 @@
 namespace omm
 {
 
-const Node::Detail ComposeNode::detail { {
-    { AbstractNodeCompiler::Language::Python, QString(R"(
+StaticNodeInfo ComposeNode::static_info()
+{
+  return {
+    {
+      { AbstractNodeCompiler::Language::Python, QString(R"(
 def %1(a, b):
   return [a, b]
 )").arg(ComposeNode::TYPE) },
-    { AbstractNodeCompiler::Language::GLSL, QString(R"(
+      { AbstractNodeCompiler::Language::GLSL, QString(R"(
 vec2 %1(float a, float b) { return vec2(a, b); }
 )").arg(ComposeNode::TYPE) }
-    } };
+    }
+  };
+}
 
 ComposeNode::ComposeNode(NodeModel& model) : Node(model)
 {

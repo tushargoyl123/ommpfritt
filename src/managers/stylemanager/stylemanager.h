@@ -1,5 +1,6 @@
 #pragma once
 
+#include "managers/manager.h"
 #include "managers/itemmanager.h"
 #include "managers/stylemanager/stylelistview.h"
 #include "keybindings/commandinterface.h"
@@ -7,7 +8,7 @@
 namespace omm
 {
 
-class StyleManager : public ItemManager<StyleListView>
+class StyleManager : public Manager::Registrar<StyleManager, ItemManager<StyleListView>>
 {
   Q_OBJECT
 public:

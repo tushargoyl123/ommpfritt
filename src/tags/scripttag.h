@@ -5,7 +5,7 @@
 
 namespace omm
 {
-class ScriptTag : public Tag
+class ScriptTag : public Tag::Registrar<ScriptTag>
 {
 public:
   explicit ScriptTag(Object& owner);

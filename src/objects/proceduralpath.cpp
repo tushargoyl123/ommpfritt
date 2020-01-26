@@ -35,7 +35,8 @@ namespace omm
 
 class Style;
 
-ProceduralPath::ProceduralPath(Scene* scene) : AbstractProceduralPath(scene)
+ProceduralPath::ProceduralPath(Scene* scene)
+  : Object::Registrar<ProceduralPath, AbstractProceduralPath>(scene)
 {
   static const auto category = QObject::tr("ProceduralPath");
   create_property<StringProperty>(CODE_PROPERTY_KEY, default_script)

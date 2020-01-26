@@ -30,7 +30,6 @@ AbstractNodeCompiler::Statement::Statement(const OutputPort& source, const Input
 AbstractNodeCompiler::Statement::Statement(const Node& node)
   : is_connection(false), source(nullptr), target(nullptr), node(&node)
 {
-
 }
 
 bool AbstractNodeCompiler::Statement::operator<(const AbstractNodeCompiler::Statement& other) const

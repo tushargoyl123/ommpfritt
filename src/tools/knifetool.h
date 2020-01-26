@@ -5,7 +5,7 @@
 namespace omm
 {
 
-class KnifeTool : public SelectPointsBaseTool
+class KnifeTool : public Tool::Registrar<KnifeTool, SelectPointsBaseTool>
 {
 public:
   explicit KnifeTool(Scene& scene);

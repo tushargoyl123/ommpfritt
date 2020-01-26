@@ -14,20 +14,20 @@ namespace omm
 
 void register_managers()
 {
-#define REGISTER_MANAGER(TYPE) Manager::register_type<TYPE>(#TYPE)
+//#define REGISTER_MANAGER(TYPE) Manager::register_type<TYPE>(#TYPE)
 
-  REGISTER_MANAGER(DopeSheetManager);
-  REGISTER_MANAGER(CurveManager);
-  REGISTER_MANAGER(ObjectManager);
-  REGISTER_MANAGER(PropertyManager);
-  REGISTER_MANAGER(StyleManager);
-  REGISTER_MANAGER(PythonConsole);
-  REGISTER_MANAGER(HistoryManager);
-  REGISTER_MANAGER(BoundingBoxManager);
-  REGISTER_MANAGER(TimeLine);
-  REGISTER_MANAGER(NodeManager);
+//  REGISTER_MANAGER(DopeSheetManager);
+//  REGISTER_MANAGER(CurveManager);
+//  REGISTER_MANAGER(ObjectManager);
+//  REGISTER_MANAGER(PropertyManager);
+//  REGISTER_MANAGER(StyleManager);
+//  REGISTER_MANAGER(PythonConsole);
+//  REGISTER_MANAGER(HistoryManager);
+//  REGISTER_MANAGER(BoundingBoxManager);
+//  REGISTER_MANAGER(TimeLine);
+//  REGISTER_MANAGER(NodeManager);
 
-#undef REGISTER_MANAGER
+//#undef REGISTER_MANAGER
 }
 
 }  // namespace omm

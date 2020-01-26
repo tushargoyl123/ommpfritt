@@ -11,7 +11,9 @@ namespace omm
 
 class ReferenceLineEdit;
 
-class ReferencePropertyWidget : public PropertyWidget<ReferenceProperty>
+class ReferencePropertyWidget
+    : public AbstractPropertyWidget::Registrar<ReferencePropertyWidget,
+                                               PropertyWidget<ReferenceProperty>>
 {
 public:
   explicit ReferencePropertyWidget(Scene& scene, const std::set<Property*>& properties);

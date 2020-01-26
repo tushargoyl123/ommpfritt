@@ -8,7 +8,10 @@
 namespace omm
 {
 
-KnifeTool::KnifeTool(Scene& scene) : SelectPointsBaseTool(scene) { }
+KnifeTool::KnifeTool(Scene& scene)
+  : Tool::Registrar<KnifeTool, SelectPointsBaseTool>(scene)
+{
+}
 
 bool KnifeTool::mouse_move(const Vec2f &delta, const Vec2f &pos, const QMouseEvent &e)
 {

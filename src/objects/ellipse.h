@@ -8,7 +8,7 @@ namespace omm
 
 class Scene;
 
-class Ellipse : public AbstractProceduralPath
+class Ellipse : public Object::Registrar<Ellipse, AbstractProceduralPath>
 {
 public:
   explicit Ellipse(Scene* scene);

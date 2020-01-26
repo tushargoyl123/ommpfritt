@@ -10,7 +10,8 @@
 namespace omm
 {
 
-BrushSelectTool::BrushSelectTool(Scene& scene) : SelectPointsBaseTool(scene)
+BrushSelectTool::BrushSelectTool(Scene& scene)
+  : Tool::Registrar<BrushSelectTool, SelectPointsBaseTool>(scene)
 {
   create_property<FloatProperty>(RADIUS_PROPERTY_KEY, 20.0)
     .set_label(QObject::tr("radius"))

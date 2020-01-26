@@ -7,7 +7,7 @@
 namespace omm
 {
 
-PathTag::PathTag(Object& owner) : Tag(owner)
+PathTag::PathTag(Object& owner) : Tag::Registrar<PathTag>(owner)
 {
   create_property<ReferenceProperty>(PATH_REFERENCE_PROPERTY_KEY)
     .set_filter(ReferenceProperty::Filter({ Kind::Object }, { { Flag::IsPathLike }}))

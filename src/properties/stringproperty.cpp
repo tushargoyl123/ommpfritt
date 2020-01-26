@@ -3,10 +3,15 @@
 namespace omm
 {
 
-const Property::PropertyDetail StringProperty::detail { nullptr };
+StaticPropertyInfo StringProperty::static_info()
+{
+  return {
+    nullptr
+  };
+}
 
 StringProperty::StringProperty(const QString& default_value)
-  : TypedProperty<QString>(default_value)
+  : Property::Registrar<StringProperty, TypedProperty<QString>>(default_value)
 {
   set_mode(Mode::SingleLine);
 }

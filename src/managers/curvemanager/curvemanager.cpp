@@ -15,7 +15,7 @@ namespace omm
 {
 
 CurveManager::CurveManager(Scene& scene)
-  : Manager(tr("Curves"), scene)
+  : Manager::Registrar<CurveManager>(tr("Curves"), scene)
 {
   auto title_bar = std::make_unique<CurveManagerTitleBar>(*this);
   m_title_bar = title_bar.get();

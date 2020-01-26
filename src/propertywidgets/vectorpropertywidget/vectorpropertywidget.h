@@ -82,17 +82,21 @@ private:
   NumericMultiValueEdit<elem_type>* m_y_edit;
 };
 
-class IntegerVectorPropertyWidget : public VectorPropertyWidget<IntegerVectorProperty>
+class IntegerVectorPropertyWidget
+  : public AbstractPropertyWidget::Registrar<IntegerVectorPropertyWidget,
+                                             VectorPropertyWidget<IntegerVectorProperty>>
 {
 public:
-  using VectorPropertyWidget::VectorPropertyWidget;
+  using Registrar<IntegerVectorPropertyWidget, VectorPropertyWidget<IntegerVectorProperty>>::Registrar;
   QString type() const override { return TYPE; }
 };
 
-class FloatVectorPropertyWidget : public VectorPropertyWidget<FloatVectorProperty>
+class FloatVectorPropertyWidget
+  : public AbstractPropertyWidget::Registrar<FloatVectorPropertyWidget,
+                                             VectorPropertyWidget<FloatVectorProperty>>
 {
 public:
-  using VectorPropertyWidget::VectorPropertyWidget;
+  using Registrar<FloatVectorPropertyWidget, VectorPropertyWidget<FloatVectorProperty>>::Registrar;
   QString type() const override { return TYPE; }
 };
 

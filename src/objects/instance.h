@@ -11,7 +11,7 @@ class Property;
 class Tag;
 class Scene;
 
-class Instance : public Object
+class Instance : public Object::Registrar<Instance>
 {
   Q_OBJECT
 public:

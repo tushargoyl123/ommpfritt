@@ -4,7 +4,22 @@
 namespace omm
 {
 
-const Property::PropertyDetail OptionsProperty::detail { nullptr };
+StaticPropertyInfo OptionsProperty::static_info()
+{
+  return {
+    nullptr
+  };
+}
+
+OptionsProperty::OptionsProperty(std::size_t default_value)
+  : Property::Registrar<OptionsProperty, TypedProperty<size_t>>(default_value)
+{
+}
+
+OptionsProperty::OptionsProperty(const OptionsProperty& other)
+  : Property::Registrar<OptionsProperty, TypedProperty<size_t>>(other)
+{
+}
 
 void OptionsProperty::deserialize(AbstractDeserializer& deserializer, const Pointer& root)
 {

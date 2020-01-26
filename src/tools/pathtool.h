@@ -8,7 +8,7 @@
 namespace omm
 {
 
-class PathTool : public SelectPointsBaseTool
+class PathTool : public Tool::Registrar<PathTool, SelectPointsBaseTool>
 {
 public:
   explicit PathTool(Scene& scene);

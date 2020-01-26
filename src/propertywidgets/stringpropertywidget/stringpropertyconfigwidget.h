@@ -6,7 +6,7 @@
 namespace omm
 {
 
-class StringPropertyConfigWidget : public PropertyConfigWidget
+class StringPropertyConfigWidget : public PropertyConfigWidget::Registrar<StringPropertyConfigWidget>
 {
 public:
   StringPropertyConfigWidget();

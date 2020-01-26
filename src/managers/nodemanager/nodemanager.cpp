@@ -15,7 +15,7 @@ namespace omm
 {
 
 NodeManager::NodeManager(Scene& scene)
-  : Manager(tr("Nodes"), scene)
+  : Manager::Registrar<NodeManager>(tr("Nodes"), scene)
   , m_ui(std::make_unique<Ui::NodeManager>())
 {
   auto widget = std::make_unique<QWidget>();
@@ -114,7 +114,7 @@ std::unique_ptr<QMenu> NodeManager::make_add_nodes_menu(KeyBindings& kb)
   if (const NodeModel* model = m_ui->nodeview->model(); model != nullptr) {
     const auto language = model->language();
     for (const QString& name : Node::keys()) {
-      if (::contains(Node::detail(name).definitions, language)) {
+      if (::contains(Node::static_info(name).definitions, language)) {
         const QString tr_name = QCoreApplication::translate("any-context", name.toStdString().c_str());
         auto action = kb.make_menu_action(*this, name);
         menu->addAction(action.release());

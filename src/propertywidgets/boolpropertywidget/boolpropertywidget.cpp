@@ -8,7 +8,7 @@ namespace omm
 {
 
 BoolPropertyWidget::BoolPropertyWidget(Scene& scene, const std::set<Property*>& properties)
-  : PropertyWidget(scene, properties)
+  : AbstractPropertyWidget::Registrar<BoolPropertyWidget, PropertyWidget<BoolProperty>>(scene, properties)
 {
   auto checkbox = std::make_unique<CheckBox>();
   m_checkbox = checkbox.get();

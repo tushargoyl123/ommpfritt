@@ -14,7 +14,7 @@ namespace omm
 
 class AbstractPropertyOwner;
 
-class BoundingBoxManager : public Manager
+class BoundingBoxManager : public Manager::Registrar<BoundingBoxManager>
 {
   Q_OBJECT
 public:

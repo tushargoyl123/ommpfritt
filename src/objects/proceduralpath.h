@@ -7,7 +7,7 @@ namespace omm
 
 class Scene;
 
-class ProceduralPath : public AbstractProceduralPath
+class ProceduralPath : public Object::Registrar<ProceduralPath, AbstractProceduralPath>
 {
 public:
   explicit ProceduralPath(Scene* scene);

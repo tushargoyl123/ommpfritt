@@ -103,7 +103,7 @@ namespace omm
 {
 
 PropertyManager::PropertyManager(Scene& scene)
-  : Manager(QCoreApplication::translate("any-context", "Properties"), scene)
+  : Manager::Registrar<PropertyManager>(QCoreApplication::translate("any-context", "Properties"), scene)
 {
   auto title_bar = std::make_unique<PropertyManagerTitleBar>(*this);
   m_title_bar = title_bar.get();

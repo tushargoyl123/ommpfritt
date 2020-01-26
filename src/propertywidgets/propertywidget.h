@@ -12,8 +12,7 @@ namespace omm
 
 class AbstractPropertyWidget
   : public QWidget
-  , public AbstractFactory< QString, AbstractPropertyWidget,
-                            Scene&, const std::set<Property*>& >
+  , public Factory<AbstractPropertyWidget, void, QString, Scene&, const std::set<Property*>& >
 {
   Q_OBJECT
 public:

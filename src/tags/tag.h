@@ -13,7 +13,7 @@ class Scene;
 
 class Tag
   : public PropertyOwner<Kind::Tag>
-  , public AbstractFactory<QString, Tag, Object&>
+  , public Factory<Tag, void, QString, Object&>
 {
 public:
   explicit Tag(Object& owner);

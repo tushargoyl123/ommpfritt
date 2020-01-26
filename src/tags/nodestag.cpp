@@ -47,7 +47,7 @@ namespace omm
 {
 
 NodesTag::NodesTag(Object& owner)
-  : Tag(owner), NodesOwner(*owner.scene())
+  : Tag::Registrar<NodesTag>(owner), NodesOwner(*owner.scene())
 {
   const QString category = QObject::tr("Basic");
   create_property<OptionsProperty>(UPDATE_MODE_PROPERTY_KEY, 0)
@@ -60,7 +60,7 @@ NodesTag::NodesTag(Object& owner)
 }
 
 NodesTag::NodesTag(const NodesTag& other)
-  : Tag(other), NodesOwner(other)
+  : Tag::Registrar<NodesTag>(other), NodesOwner(other)
 {
 }
 

@@ -13,7 +13,7 @@ public:
 
   static constexpr auto CONSTANT_VALUE_KEY = "constant";
   void populate_menu(QMenu& menu) override;
-  static const Detail detail;
+  static StaticNodeInfo static_info();
 
 protected:
   void on_property_value_changed(Property* property) override;

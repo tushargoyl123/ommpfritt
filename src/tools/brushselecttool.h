@@ -7,7 +7,7 @@
 namespace omm
 {
 
-class BrushSelectTool : public SelectPointsBaseTool
+class BrushSelectTool : public Tool::Registrar<BrushSelectTool, SelectPointsBaseTool>
 {
 public:
   explicit BrushSelectTool(Scene& scene);

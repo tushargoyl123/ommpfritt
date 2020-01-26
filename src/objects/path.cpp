@@ -48,7 +48,7 @@ namespace omm
 
 class Style;
 
-Path::Path(Scene* scene) : Object(scene)
+Path::Path(Scene* scene) : Object::Registrar<Path>(scene)
 {
   static const auto category = QObject::tr("path");
 

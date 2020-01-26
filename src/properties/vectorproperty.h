@@ -13,16 +13,18 @@ struct FloatVectorPropertyLimits
   static const Vec2f step;
 };
 
-class FloatVectorProperty : public NumericProperty<Vec2f>
+class FloatVectorProperty
+  : public Property::Registrar<FloatVectorProperty, NumericProperty<Vec2f>>
 {
 public:
-  using NumericProperty::NumericProperty;
+  explicit FloatVectorProperty(const Vec2f& default_value = Vec2f());
+  FloatVectorProperty(const FloatVectorProperty& other);
   QString type() const override { return TYPE; }
   void deserialize(AbstractDeserializer& deserializer, const Pointer& root) override;
   void serialize(AbstractSerializer& serializer, const Pointer& root) const override;
   static constexpr auto TYPE = QT_TRANSLATE_NOOP("Property", "FloatVectorProperty");
   std::unique_ptr<Property> clone() const override;
-  static const PropertyDetail detail;
+  static StaticPropertyInfo static_info();
 };
 
 struct IntegerVectorPropertyLimits
@@ -32,16 +34,18 @@ struct IntegerVectorPropertyLimits
   static const Vec2i step;
 };
 
-class IntegerVectorProperty : public NumericProperty<Vec2i>
+class IntegerVectorProperty
+    : public Property::Registrar<IntegerVectorProperty, NumericProperty<Vec2i>>
 {
 public:
-  using NumericProperty::NumericProperty;
+  explicit IntegerVectorProperty(const Vec2i& default_value = Vec2i());
+  IntegerVectorProperty(const IntegerVectorProperty& other);
   QString type() const override;
   void deserialize(AbstractDeserializer& deserializer, const Pointer& root) override;
   void serialize(AbstractSerializer& serializer, const Pointer& root) const override;
   static constexpr auto TYPE = QT_TRANSLATE_NOOP("IntegerVectorProperty", "IntegerVectorProperty");
   std::unique_ptr<Property> clone() const override;
-  static const PropertyDetail detail;
+  static StaticPropertyInfo static_info();
 };
 
 }  // namespace omm

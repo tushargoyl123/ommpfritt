@@ -12,7 +12,7 @@
 namespace omm
 {
 
-Outline::Outline(Scene* scene) : Object(scene)
+Outline::Outline(Scene* scene) : Object::Registrar<Outline>(scene)
 {
   static const auto category = QObject::tr("Outline");
   create_property<FloatProperty>(OFFSET_PROPERTY_KEY)
@@ -25,7 +25,8 @@ Outline::Outline(Scene* scene) : Object(scene)
 }
 
 Outline::Outline(const Outline &other)
-  : Object(other), m_outline(other.m_outline ? PathUniquePtr(new Path(*other.m_outline)) : nullptr)
+  : Object::Registrar<Outline>(other)
+  , m_outline(other.m_outline ? PathUniquePtr(new Path(*other.m_outline)) : nullptr)
 {
   polish();
 }

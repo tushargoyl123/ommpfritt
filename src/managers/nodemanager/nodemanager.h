@@ -12,7 +12,7 @@ namespace omm
 
 class AbstractPropertyOwner;
 class NodeModel;
-class NodeManager : public Manager
+class NodeManager : public Manager::Registrar<NodeManager>
 {
   Q_OBJECT
 public:

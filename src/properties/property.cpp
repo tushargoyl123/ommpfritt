@@ -10,8 +10,6 @@
 namespace omm
 {
 
-std::map<QString, const Property::PropertyDetail*> Property::m_details;
-
 Property::Property(const Property &other)
   : QObject()
   , configuration(other.configuration)
@@ -142,7 +140,7 @@ void Property::set_channel_value(std::size_t channel, double value)
 
 QString Property::channel_name(std::size_t channel) const
 {
-  return m_details.at(type())->channel_name(*this, channel);
+  return static_info(type()).channel_name(*this, channel);
 }
 
 QString Property::data_type() const

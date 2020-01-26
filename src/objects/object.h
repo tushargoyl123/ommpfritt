@@ -30,14 +30,14 @@ class Object
   : public PropertyOwner<Kind::Object>
   , public virtual Serializable
   , public TreeElement<Object>
-  , public AbstractFactory<QString, Object, Scene*>
+  , public Factory<Object, void, QString, Scene*>
 {
   Q_OBJECT
 
   Scene* m_scene;
 
 public:
-  using PathUniquePtr = std::unique_ptr<Path, PathDeleter>;
+  using PathUniquePtr = std::unique_ptr<Path, PathDeleter>;  // TODO simplify
 
   explicit Object(Scene* scene);
   explicit Object(const Object& other);

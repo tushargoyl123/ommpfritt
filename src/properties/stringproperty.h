@@ -6,7 +6,7 @@
 namespace omm
 {
 
-class StringProperty : public TypedProperty<QString>
+class StringProperty : public Property::Registrar<StringProperty, TypedProperty<QString>>
 {
 public:
   explicit StringProperty(const QString &default_value = "");
@@ -19,7 +19,7 @@ public:
   static constexpr auto MODE_PROPERTY_KEY = "mode";
   std::unique_ptr<Property> clone() const override;
 
-  static const PropertyDetail detail;
+  static StaticPropertyInfo static_info();
 };
 
 }  // namespace omm

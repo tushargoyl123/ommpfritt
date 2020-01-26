@@ -8,7 +8,7 @@ namespace omm
 
 class Style;
 
-Line::Line(Scene* scene) : AbstractProceduralPath(scene)
+Line::Line(Scene* scene) : Object::Registrar<Line, AbstractProceduralPath>(scene)
 {
   static const auto category = QObject::tr("Line");
   create_property<FloatProperty>(LENGTH_PROPERTY_KEY, 100.0 )

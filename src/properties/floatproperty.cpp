@@ -3,10 +3,24 @@
 namespace omm
 {
 
-const Property::PropertyDetail FloatProperty::detail
+StaticPropertyInfo FloatProperty::static_info()
 {
-  [](const Property&, std::size_t) { return ""; }
-};
+  return {
+    [](const Property&, std::size_t) { return ""; }
+  };
+}
+
+FloatProperty::FloatProperty(const FloatProperty& other)
+  : Property::Registrar<FloatProperty, NumericProperty<double>>(other)
+{
+
+}
+
+FloatProperty::FloatProperty(double default_value)
+  : Property::Registrar<FloatProperty, NumericProperty<double>>(default_value)
+{
+
+}
 
 void FloatProperty::deserialize(AbstractDeserializer& deserializer, const Pointer& root)
 {

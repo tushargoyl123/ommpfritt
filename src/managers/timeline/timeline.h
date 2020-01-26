@@ -11,7 +11,7 @@ namespace omm
 class Slider;
 class TimeLineTitleBar;
 
-class TimeLine : public Manager
+class TimeLine : public Manager::Registrar<TimeLine>
 {
   Q_OBJECT
 public:

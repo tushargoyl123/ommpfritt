@@ -7,10 +7,11 @@
 namespace omm
 {
 
-class OptionsProperty : public TypedProperty<size_t>
+class OptionsProperty : public Property::Registrar<OptionsProperty, TypedProperty<size_t>>
 {
 public:
-  using TypedProperty::TypedProperty;
+  explicit OptionsProperty(std::size_t default_value = 0);
+  OptionsProperty(const OptionsProperty& other);
   QString type() const override { return TYPE; }
   void deserialize(AbstractDeserializer& deserializer, const Pointer& root) override;
   void serialize(AbstractSerializer& serializer, const Pointer& root) const override;
@@ -24,7 +25,7 @@ public:
   static constexpr auto OPTIONS_POINTER = "options";
   bool is_compatible(const Property& other) const override;
   void revise() override;
-  static const PropertyDetail detail;
+  static StaticPropertyInfo static_info();
 };
 
 }  // namespace omm

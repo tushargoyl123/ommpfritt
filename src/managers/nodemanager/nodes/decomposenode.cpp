@@ -6,16 +6,21 @@
 namespace omm
 {
 
-const Node::Detail DecomposeNode::detail { {
-     { AbstractNodeCompiler::Language::Python, QString(R"(
+StaticNodeInfo DecomposeNode::static_info()
+{
+  return {
+    {
+      { AbstractNodeCompiler::Language::Python, QString(R"(
 def %1(v):
   return v
 )").arg(DecomposeNode::TYPE) },
-     { AbstractNodeCompiler::Language::GLSL, QString(R"(
+      { AbstractNodeCompiler::Language::GLSL, QString(R"(
 float %1_0(vec2 xy) { return xy.x; }
 float %1_1(vec2 xy) { return xy.y; }
 )").arg(DecomposeNode::TYPE) }
-                                           } };
+    }
+  };
+}
 
 DecomposeNode::DecomposeNode(NodeModel& model) : Node(model)
 {

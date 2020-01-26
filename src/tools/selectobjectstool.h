@@ -31,7 +31,7 @@ private:
   std::set<Object*> m_objects;
 };
 
-class SelectObjectsTool : public AbstractSelectTool
+class SelectObjectsTool : public Tool::Registrar<SelectObjectsTool, AbstractSelectTool>
 {
 public:
   explicit SelectObjectsTool(Scene& scene);

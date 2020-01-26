@@ -6,10 +6,10 @@
 namespace omm
 {
 
-class BoolPropertyConfigWidget : public PropertyConfigWidget
+class BoolPropertyConfigWidget : public PropertyConfigWidget::Registrar<BoolPropertyConfigWidget>
 {
 public:
-  using PropertyConfigWidget::PropertyConfigWidget;
+  using Registrar<BoolPropertyConfigWidget>::Registrar;
   static constexpr auto TYPE = "BoolPropertyConfigWidget";
   QString type() const override { return TYPE; }
   void init(const Property::Configuration&) override { }

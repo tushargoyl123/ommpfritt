@@ -9,8 +9,14 @@
 namespace omm
 {
 
-const Node::Detail FragmentNode::detail { {
-    { AbstractNodeCompiler::Language::GLSL, "" } } };
+StaticNodeInfo FragmentNode::static_info()
+{
+  return {
+    {
+      { AbstractNodeCompiler::Language::GLSL, "" }
+    }
+  };
+}
 
 FragmentNode::FragmentNode(NodeModel& model)
   : Node(model)

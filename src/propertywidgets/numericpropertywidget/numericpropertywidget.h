@@ -23,18 +23,22 @@ private:
   NumericMultiValueEdit<value_type>* m_spinbox;
 };
 
-class IntegerPropertyWidget : public NumericPropertyWidget<IntegerProperty>
+class IntegerPropertyWidget
+    : public AbstractPropertyWidget::Registrar<IntegerPropertyWidget,
+                                               NumericPropertyWidget<IntegerProperty>>
 {
 public:
-  using NumericPropertyWidget::NumericPropertyWidget;
+  using Registrar<IntegerPropertyWidget, NumericPropertyWidget<IntegerProperty>>::Registrar;
   static constexpr auto TYPE = "IntegerPropertyWidget";
   QString type() const override { return TYPE; }
 };
 
-class FloatPropertyWidget : public NumericPropertyWidget<FloatProperty>
+class FloatPropertyWidget
+    : public AbstractPropertyWidget::Registrar<FloatPropertyWidget,
+                                               NumericPropertyWidget<FloatProperty>>
 {
 public:
-  using NumericPropertyWidget::NumericPropertyWidget;
+  using Registrar<FloatPropertyWidget, NumericPropertyWidget<FloatProperty>>::Registrar;
   static constexpr auto TYPE = "FloatPropertyWidget";
   QString type() const override { return TYPE; }
 };

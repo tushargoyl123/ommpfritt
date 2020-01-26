@@ -26,9 +26,15 @@ class Track;
 class Property;
 class OptionsProperty;
 
+
+struct StaticPropertyInfo
+{
+  const std::function<QString(const Property&, std::size_t)> channel_name;
+};
+
 class Property
   : public QObject
-  , public AbstractFactory<QString, Property>
+  , public Factory<Property, StaticPropertyInfo, QString>
   , public virtual Serializable
 {
   Q_OBJECT
@@ -203,19 +209,10 @@ Q_SIGNALS:
 
 public:
   // === Channels
-  struct PropertyDetail
-  {
-    const std::function<QString(const Property&, std::size_t)> channel_name;
-  };
-
   std::size_t n_channels() const;
   double channel_value(std::size_t channel) const;
   void set_channel_value(std::size_t channel, double value);
   QString channel_name(std::size_t channel) const;
-
-private:
-  static std::map<QString, const PropertyDetail*> m_details;
-  friend void register_properties();
 
 Q_SIGNALS:
   void enabledness_changed(bool);
@@ -226,8 +223,6 @@ public:
 private:
   bool m_is_enabled = true;
 };
-
-void register_properties();
 
 std::ostream& operator<<(std::ostream& ostream, const Property::Filter& filter);
 

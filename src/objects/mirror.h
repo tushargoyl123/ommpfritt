@@ -11,7 +11,7 @@ class Property;
 class Tag;
 class Scene;
 
-class Mirror : public Object
+class Mirror : public Object::Registrar<Mirror>
 {
 public:
   enum class Direction { Horizontal, Vertical };

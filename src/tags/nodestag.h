@@ -11,7 +11,7 @@ namespace omm
 
 class NodeModel;
 
-class NodesTag : public Tag, public NodesOwner<NodeCompilerPython>
+class NodesTag : public Tag::Registrar<NodesTag>, public NodesOwner<NodeCompilerPython>
 {
   Q_OBJECT
 public:

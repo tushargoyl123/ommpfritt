@@ -9,7 +9,7 @@ namespace omm
 
 class HistoryModel;
 
-class HistoryManager : public Manager
+class HistoryManager : public Manager::Registrar<HistoryManager>
 {
   Q_OBJECT
 public:

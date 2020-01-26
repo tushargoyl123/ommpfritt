@@ -3,10 +3,22 @@
 namespace omm
 {
 
-const Property::PropertyDetail IntegerProperty::detail
+StaticPropertyInfo IntegerProperty::static_info()
 {
-  [](const Property&, std::size_t) { return ""; }
-};
+  return {
+    [](const Property&, std::size_t) { return ""; }
+  };
+}
+
+IntegerProperty::IntegerProperty(int default_value)
+  : Property::Registrar<IntegerProperty, NumericProperty<int>>(default_value)
+{
+}
+
+IntegerProperty::IntegerProperty(const IntegerProperty& other)
+  : Property::Registrar<IntegerProperty, NumericProperty<int>>(other)
+{
+}
 
 void IntegerProperty::deserialize(AbstractDeserializer& deserializer, const Pointer& root)
 {

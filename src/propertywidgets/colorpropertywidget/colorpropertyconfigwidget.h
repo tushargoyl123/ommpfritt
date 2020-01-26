@@ -6,10 +6,10 @@
 namespace omm
 {
 
-class ColorPropertyConfigWidget : public PropertyConfigWidget
+class ColorPropertyConfigWidget : public PropertyConfigWidget::Registrar<ColorPropertyConfigWidget>
 {
 public:
-  using PropertyConfigWidget::PropertyConfigWidget;
+  using Registrar<ColorPropertyConfigWidget>::Registrar;
   static constexpr auto TYPE = "ColorPropertyConfigWidget";
   QString type() const override { return TYPE; }
   void init(const Property::Configuration&) override { }

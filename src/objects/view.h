@@ -5,7 +5,7 @@
 namespace omm
 {
 
-class View : public Object
+class View : public Object::Registrar<View>
 {
 public:
   explicit View(Scene* scene);

@@ -6,10 +6,10 @@
 namespace omm
 {
 
-class Empty : public Object
+class Empty : public Object::Registrar<Empty>
 {
 public:
-  using Object::Object;
+  explicit Empty(Scene* scene);
   BoundingBox bounding_box(const ObjectTransformation& transformation) const override;
   QString type() const override;
   std::unique_ptr<Object> clone() const override;

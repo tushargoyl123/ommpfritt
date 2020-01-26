@@ -28,7 +28,7 @@ namespace omm
 
 QPen View::m_pen = make_pen();
 
-View::View(Scene* scene) : Object(scene)
+View::View(Scene* scene) : Object::Registrar<View>(scene)
 {
   static const auto category = QObject::tr("view");
   create_property<FloatVectorProperty>(SIZE_PROPERTY_KEY, Vec2f(100.0, 100.0) )
@@ -42,7 +42,7 @@ View::View(Scene* scene) : Object(scene)
   update();
 }
 
-View::View(const View &other) : Object(other)
+View::View(const View &other) : Object::Registrar<View>(other)
 {
   if (property(OUTPUT_VIEW_PROPERTY_KEY)->value<bool>()) {
     make_output_unique();

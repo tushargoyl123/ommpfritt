@@ -20,7 +20,7 @@ class ReferenceProperty;
 class AbstractPropertyOwner;
 
 class AbstractSerializer
-  : public AbstractFactory<QString, AbstractSerializer, std::ostream&>
+  : public Factory<AbstractSerializer, void, QString, std::ostream&>
 {
 
 private:
@@ -94,7 +94,7 @@ protected:
 };
 
 class AbstractDeserializer
-  : public AbstractFactory<QString, AbstractDeserializer, std::istream&>
+  : public Factory<AbstractDeserializer, void, QString, std::istream&>
 {
 public:
   using Pointer = Serializable::Pointer;

@@ -9,7 +9,7 @@ namespace omm
 class DopeSheet;
 class DopeSheetView;
 
-class DopeSheetManager : public Manager
+class DopeSheetManager : public Manager::Registrar<DopeSheetManager>
 {
   Q_OBJECT
 public:

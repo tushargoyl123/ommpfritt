@@ -67,18 +67,24 @@ private:
   NumericEdit<double>* m_mult_edit;
 };
 
-class IntegerPropertyConfigWidget : public NumericPropertyConfigWidget<IntegerProperty::value_type>
+class IntegerPropertyConfigWidget
+    : public PropertyConfigWidget::Registrar<IntegerPropertyConfigWidget,
+                                             NumericPropertyConfigWidget<IntegerProperty::value_type>>
 {
 public:
-  using NumericPropertyConfigWidget<IntegerProperty::value_type>::NumericPropertyConfigWidget;
+  using Registrar<IntegerPropertyConfigWidget,
+                  NumericPropertyConfigWidget<IntegerProperty::value_type>>::Registrar;
   static constexpr auto TYPE = "FloatPropertyConfigWidget";
   QString type() const override { return TYPE; }
 };
 
-class FloatPropertyConfigWidget : public NumericPropertyConfigWidget<FloatProperty::value_type>
+class FloatPropertyConfigWidget
+    : public PropertyConfigWidget::Registrar<FloatPropertyConfigWidget,
+                                             NumericPropertyConfigWidget<FloatProperty::value_type>>
 {
 public:
-  using NumericPropertyConfigWidget<FloatProperty::value_type>::NumericPropertyConfigWidget;
+  using Registrar<FloatPropertyConfigWidget,
+                  NumericPropertyConfigWidget<FloatProperty::value_type>>::Registrar;
   static constexpr auto TYPE = "FloatPropertyConfigWidget";
   QString type() const override { return TYPE; }
 };

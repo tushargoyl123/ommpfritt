@@ -93,21 +93,23 @@ private:
 };
 
 class IntegerVectorPropertyConfigWidget
-    : public VectorPropertyConfigWidget<IntegerVectorProperty::value_type>
+    : public PropertyConfigWidget::Registrar<IntegerVectorPropertyConfigWidget,
+                                             VectorPropertyConfigWidget<IntegerVectorProperty::value_type>>
 {
   Q_OBJECT
 public:
-  using VectorPropertyConfigWidget<IntegerVectorProperty::value_type>::VectorPropertyConfigWidget;
+  using Registrar<IntegerVectorPropertyConfigWidget, VectorPropertyConfigWidget<IntegerVectorProperty::value_type>>::Registrar;
   static constexpr auto TYPE = "IntegerVectorPropertyConfigWidget";
   QString type() const override { return TYPE; }
 };
 
 class FloatVectorPropertyConfigWidget
-    : public VectorPropertyConfigWidget<FloatVectorProperty::value_type>
+    : public PropertyConfigWidget::Registrar<FloatVectorPropertyConfigWidget,
+                                             VectorPropertyConfigWidget<FloatVectorProperty::value_type>>
 {
   Q_OBJECT
 public:
-  using VectorPropertyConfigWidget<FloatVectorProperty::value_type>::VectorPropertyConfigWidget;
+  using Registrar<FloatVectorPropertyConfigWidget, VectorPropertyConfigWidget<FloatVectorProperty::value_type>>::Registrar;
   static constexpr auto TYPE = "FloatVectorPropertyConfigWidget";
   QString type() const override { return TYPE; }
 };

@@ -11,7 +11,9 @@ namespace omm
 class AbstractPropertyOwner;
 class ReferenceProperty;
 
-class ReferenceProperty : public TypedProperty<AbstractPropertyOwner*>, ReferencePolisher
+class ReferenceProperty
+    : public Property::Registrar<ReferenceProperty, TypedProperty<AbstractPropertyOwner*>>
+    , ReferencePolisher
 {
   Q_OBJECT
 public:
@@ -40,7 +42,7 @@ public:
   static const std::map<Flag, QString> FLAG_KEYS;
   void update_references(const std::map<std::size_t, AbstractPropertyOwner *> &references) override;
 
-  static const PropertyDetail detail;
+  static StaticPropertyInfo static_info();
   Filter filter() const;
 
 Q_SIGNALS:

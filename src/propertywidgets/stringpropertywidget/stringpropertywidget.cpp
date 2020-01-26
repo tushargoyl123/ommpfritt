@@ -9,7 +9,7 @@ namespace omm
 
 StringPropertyWidget
 ::StringPropertyWidget(Scene& scene, const std::set<Property*>& properties)
-  : PropertyWidget(scene, properties)
+  : AbstractPropertyWidget::Registrar<StringPropertyWidget, PropertyWidget<StringProperty>>(scene, properties)
 {
   const auto mode = configuration<StringProperty::Mode>(StringProperty::MODE_PROPERTY_KEY);
 

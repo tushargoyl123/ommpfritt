@@ -19,22 +19,22 @@ namespace omm
 
 void register_objects()
 {
-#define REGISTER_OBJECT(TYPE) Object::register_type<TYPE>(#TYPE)
-  REGISTER_OBJECT(Cloner);
-  REGISTER_OBJECT(Empty);
-  REGISTER_OBJECT(Ellipse);
-  REGISTER_OBJECT(ImageObject);
-  REGISTER_OBJECT(Instance);
-  REGISTER_OBJECT(Line);
-  REGISTER_OBJECT(Mirror);
-  REGISTER_OBJECT(Outline);
-  REGISTER_OBJECT(Path);
-  REGISTER_OBJECT(ProceduralPath);
-  REGISTER_OBJECT(RectangleObject);
-  REGISTER_OBJECT(View);
-  REGISTER_OBJECT(Text);
-  REGISTER_OBJECT(Tip);
-#undef REGISTER_OBJECT
+//#define REGISTER_OBJECT(TYPE) Object::register_type<TYPE>(#TYPE)
+//  REGISTER_OBJECT(Cloner);
+//  REGISTER_OBJECT(Empty);
+//  REGISTER_OBJECT(Ellipse);
+//  REGISTER_OBJECT(ImageObject);
+//  REGISTER_OBJECT(Instance);
+//  REGISTER_OBJECT(Line);
+//  REGISTER_OBJECT(Mirror);
+//  REGISTER_OBJECT(Outline);
+//  REGISTER_OBJECT(Path);
+//  REGISTER_OBJECT(ProceduralPath);
+//  REGISTER_OBJECT(RectangleObject);
+//  REGISTER_OBJECT(View);
+//  REGISTER_OBJECT(Text);
+//  REGISTER_OBJECT(Tip);
+//#undef REGISTER_OBJECT
 }
 
 }  // namespace omm

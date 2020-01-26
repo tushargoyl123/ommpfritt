@@ -11,7 +11,7 @@
 namespace omm
 {
 
-Mirror::Mirror(Scene* scene) : Object(scene)
+Mirror::Mirror(Scene* scene) : Object::Registrar<Mirror>(scene)
 {
   static const auto category = QObject::tr("Mirror");
   create_property<OptionsProperty>(DIRECTION_PROPERTY_KEY)
@@ -30,7 +30,8 @@ Mirror::Mirror(Scene* scene) : Object(scene)
 }
 
 Mirror::Mirror(const Mirror &other)
-  : Object(other), m_reflection(other.m_reflection ? other.m_reflection->clone() : nullptr)
+  : Object::Registrar<Mirror>(other)
+  , m_reflection(other.m_reflection ? other.m_reflection->clone() : nullptr)
 {
   polish();
 }

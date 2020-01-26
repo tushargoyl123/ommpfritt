@@ -9,7 +9,10 @@
 namespace omm
 {
 
-PathTool::PathTool(Scene &scene) : SelectPointsBaseTool(scene) {  }
+PathTool::PathTool(Scene &scene)
+  : Tool::Registrar<PathTool, SelectPointsBaseTool>(scene)
+{
+}
 
 bool PathTool::mouse_move(const Vec2f &delta, const Vec2f &pos, const QMouseEvent &event)
 {

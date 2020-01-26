@@ -11,7 +11,7 @@ class Property;
 class Tag;
 class Scene;
 
-class Outline : public Object
+class Outline : public Object::Registrar<Outline>
 {
 public:
   explicit Outline(Scene* scene);

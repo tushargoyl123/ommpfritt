@@ -10,27 +10,43 @@ namespace
 namespace omm
 {
 
-const Property::PropertyDetail IntegerVectorProperty::detail {
-  [](const Property&, std::size_t channel) {
-    assert(channel < 2);
-    return std::vector {
-      QObject::tr("x"), QObject::tr("y")
-    }[channel];
-  }
-};
+StaticPropertyInfo FloatVectorProperty::static_info()
+{
+  return {
+    [](const Property&, std::size_t channel) {
+      assert(channel < 2);
+      return std::vector {
+        QObject::tr("x"), QObject::tr("y")
+      }[channel];
+    }
+  };
+}
 
-const Property::PropertyDetail FloatVectorProperty::detail {
-  [](const Property&, std::size_t channel) {
-    assert(channel < 2);
-    return std::vector {
-      QObject::tr("x"), QObject::tr("y")
-    }[channel];
-  }
-};
+StaticPropertyInfo IntegerVectorProperty::static_info()
+{
+  return {
+    [](const Property&, std::size_t channel) {
+      assert(channel < 2);
+      return std::vector {
+        QObject::tr("x"), QObject::tr("y")
+      }[channel];
+    }
+  };
+}
 
 const Vec2f FloatVectorPropertyLimits::lower(-inf, -inf);
 const Vec2f FloatVectorPropertyLimits::upper( inf,  inf);
 const Vec2f FloatVectorPropertyLimits::step(1.0, 1.0);
+
+FloatVectorProperty::FloatVectorProperty(const Vec2f& default_value)
+  : Property::Registrar<FloatVectorProperty, NumericProperty<Vec2f>>(default_value)
+{
+}
+
+FloatVectorProperty::FloatVectorProperty(const FloatVectorProperty& other)
+  : Property::Registrar<FloatVectorProperty, NumericProperty<Vec2f>>(other)
+{
+}
 
 void FloatVectorProperty::deserialize(AbstractDeserializer& deserializer, const Pointer& root)
 {
@@ -60,6 +76,16 @@ std::unique_ptr<Property> FloatVectorProperty::clone() const
 const Vec2i IntegerVectorPropertyLimits::lower(int_low,  int_low);
 const Vec2i IntegerVectorPropertyLimits::upper(int_high, int_high);
 const Vec2i IntegerVectorPropertyLimits::step(1, 1);
+
+IntegerVectorProperty::IntegerVectorProperty(const Vec2i& default_value)
+  : Property::Registrar<IntegerVectorProperty, NumericProperty<Vec2i>>(default_value)
+{
+}
+
+IntegerVectorProperty::IntegerVectorProperty(const IntegerVectorProperty& other)
+  : Property::Registrar<IntegerVectorProperty, NumericProperty<Vec2i>>(other)
+{
+}
 
 QString IntegerVectorProperty::type() const { return TYPE; }
 

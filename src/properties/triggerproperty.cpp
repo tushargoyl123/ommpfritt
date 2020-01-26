@@ -3,7 +3,22 @@
 namespace omm
 {
 
-const Property::PropertyDetail TriggerProperty::detail { nullptr };
+StaticPropertyInfo TriggerProperty::static_info()
+{
+  return {
+    nullptr
+  };
+}
+
+TriggerProperty::TriggerProperty(const TriggerProperty& other)
+  : Property::Registrar<TriggerProperty, TypedProperty<TriggerPropertyDummyValueType>>(other)
+{
+}
+
+TriggerProperty::TriggerProperty(const TriggerPropertyDummyValueType& default_value)
+  : Property::Registrar<TriggerProperty, TypedProperty<TriggerPropertyDummyValueType>>(default_value)
+{
+}
 
 std::unique_ptr<Property> TriggerProperty::clone() const
 {

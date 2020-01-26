@@ -9,6 +9,7 @@ template<PortType> class OrdinaryPort;
 
 class DecomposeColorNode : public Node
 {
+  Q_OBJECT
 public:
   explicit DecomposeColorNode(NodeModel& model);
   static constexpr auto INPUT_PROPERTY_KEY = "in";
@@ -18,7 +19,7 @@ public:
   QString title() const override;
   bool accepts_input_data_type(const QString& type, const InputPort& port) const override;
   QString type() const override { return TYPE; }
-  static const Detail detail;
+  static StaticNodeInfo static_info();
 };
 
 }  // namespace omm

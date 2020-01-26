@@ -526,40 +526,12 @@
         <translation>Convertir</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>Lineal</translation>
-    </message>
-    <message>
-        <source>Grid</source>
-        <translation>Rejilla</translation>
-    </message>
-    <message>
-        <source>Radial</source>
-        <translation>Radial</translation>
-    </message>
-    <message>
         <source>Path</source>
         <translation>Trayecto</translation>
     </message>
     <message>
-        <source>Script</source>
-        <translation>Script</translation>
-    </message>
-    <message>
-        <source>mode</source>
-        <translation>Modo</translation>
-    </message>
-    <message>
-        <source>Cloner</source>
-        <translation>Clonador</translation>
-    </message>
-    <message>
         <source>count</source>
         <translation>Número</translation>
-    </message>
-    <message>
-        <source>distance</source>
-        <translation>Distancia</translation>
     </message>
     <message>
         <source>radius</source>
@@ -570,36 +542,12 @@
         <translation>Trayecto</translation>
     </message>
     <message>
-        <source>start</source>
-        <translation>Inicio</translation>
-    </message>
-    <message>
-        <source>end</source>
-        <translation>Fin</translation>
-    </message>
-    <message>
         <source>align</source>
         <translation>Alinear</translation>
     </message>
     <message>
-        <source>Clamp</source>
-        <translation>Restringir</translation>
-    </message>
-    <message>
         <source>Wrap</source>
         <translation>Repetir</translation>
-    </message>
-    <message>
-        <source>Hide</source>
-        <translation>Ocultar</translation>
-    </message>
-    <message>
-        <source>Reflect</source>
-        <translation>Reflejar</translation>
-    </message>
-    <message>
-        <source>border</source>
-        <translation>Borde</translation>
     </message>
     <message>
         <source>code</source>
@@ -1095,14 +1043,6 @@ Borrar la selección de todos modos?</translation>
         <translation>Texto</translation>
     </message>
     <message>
-        <source>Fill Random</source>
-        <translation>Rellenar aleatoriamente</translation>
-    </message>
-    <message>
-        <source>seed</source>
-        <translation>Seed</translation>
-    </message>
-    <message>
         <source>length</source>
         <translation>Longitud</translation>
     </message>
@@ -1249,14 +1189,6 @@ Borrar la selección de todos modos?</translation>
     <message>
         <source>decoration</source>
         <translation>Decoración</translation>
-    </message>
-    <message>
-        <source>this</source>
-        <translation>Este</translation>
-    </message>
-    <message>
-        <source>anchor</source>
-        <translation>Anclaje</translation>
     </message>
     <message>
         <source>Symmetric</source>
@@ -1446,6 +1378,74 @@ Borrar la selección de todos modos?</translation>
     </message>
     <message>
         <source>Edit style ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloner</source>
+        <translation type="unfinished">Clonador</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished">Lineal</translation>
+    </message>
+    <message>
+        <source>Grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Random</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>distance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clamp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reflect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>border</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>this</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>anchor</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

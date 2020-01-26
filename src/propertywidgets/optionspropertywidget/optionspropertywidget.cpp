@@ -5,21 +5,21 @@
 namespace omm
 {
 
-OptionsPropertyWidget::OptionsPropertyWidget(Scene& scene, const std::set<Property*>& properties)
-  : PropertyWidget(scene, properties)
-{
-  auto options_edit = std::make_unique<OptionsEdit>();
-  connect(options_edit.get(), static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-          [this](int value) { set_properties_value(value); });
-  m_options_edit = options_edit.get();
-  const auto get_options = std::mem_fn(&OptionsProperty::options);
+//OptionsPropertyWidget::OptionsPropertyWidget(Scene& scene, const std::set<Property*>& properties)
+//  : AbstractPropertyWidget::Registrar<OptionsProperty, PropertyWidget<OptionsProperty>>(scene, properties)
+//{
+//  auto options_edit = std::make_unique<OptionsEdit>();
+//  connect(options_edit.get(), static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+//          [this](int value) { set_properties_value(value); });
+//  m_options_edit = options_edit.get();
+//  const auto get_options = std::mem_fn(&OptionsProperty::options);
 
-  QSignalBlocker blocker(m_options_edit);
-  m_options_edit->set_options(
-    Property::get_value<std::vector<QString>, OptionsProperty>(properties, get_options));
-  set_default_layout(std::move(options_edit));
-  update_edit();
-}
+//  QSignalBlocker blocker(m_options_edit);
+//  m_options_edit->set_options(
+//    Property::get_value<std::vector<QString>, OptionsProperty>(properties, get_options));
+//  set_default_layout(std::move(options_edit));
+//  update_edit();
+//}
 
 void OptionsPropertyWidget::update_edit()
 {

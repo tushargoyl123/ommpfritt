@@ -93,7 +93,7 @@ namespace omm
 {
 
 JSONSerializer::JSONSerializer(std::ostream& ostream)
-  : AbstractSerializer(ostream)
+  : AbstractSerializer::Registrar<JSONSerializer>(ostream)
   , m_ostream(ostream)
 {
 }
@@ -184,7 +184,7 @@ QString JSONSerializer::type() const { return "JSONSerializer"; }
 
 
 JSONDeserializer::JSONDeserializer(std::istream& istream)
-  : AbstractDeserializer(istream)
+  : AbstractDeserializer::Registrar<JSONDeserializer>(istream)
 {
   try {
     istream >> m_store;

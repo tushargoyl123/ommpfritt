@@ -8,7 +8,7 @@ namespace omm
 {
 
 HistoryManager::HistoryManager(Scene &scene)
-  : Manager(tr("History"), scene)
+  : Manager::Registrar<HistoryManager>(tr("History"), scene)
   , m_model(scene.history())
 {
   auto view = std::make_unique<QListView>();

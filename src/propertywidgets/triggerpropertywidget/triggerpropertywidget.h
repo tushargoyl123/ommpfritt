@@ -6,7 +6,9 @@
 namespace omm
 {
 
-class TriggerPropertyWidget : public PropertyWidget<TriggerProperty>
+class TriggerPropertyWidget
+    : public AbstractPropertyWidget::Registrar<TriggerPropertyWidget,
+                                               PropertyWidget<TriggerProperty>>
 {
 public:
   explicit TriggerPropertyWidget(Scene& scene, const std::set<Property*>& properties);

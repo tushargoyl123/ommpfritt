@@ -12,7 +12,7 @@ namespace omm
 {
 
 SelectObjectsTool::SelectObjectsTool(Scene& scene)
-  : AbstractSelectTool(scene)
+  : Tool::Registrar<SelectObjectsTool, AbstractSelectTool>(scene)
 {
   create_property<OptionsProperty>(TRANSFORMATION_MODE_KEY, 0)
     .set_options({ QObject::tr("Object"), QObject::tr("Axis") })

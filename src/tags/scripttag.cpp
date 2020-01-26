@@ -26,7 +26,7 @@ namespace omm
 {
 
 ScriptTag::ScriptTag(Object& owner)
-  : Tag(owner)
+  : Tag::Registrar<ScriptTag>(owner)
 {
   create_property<StringProperty>(CODE_PROPERTY_KEY, default_script)
     .set_mode(StringProperty::Mode::Code)

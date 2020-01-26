@@ -3,10 +3,22 @@
 namespace omm
 {
 
-const Property::PropertyDetail BoolProperty::detail
+StaticPropertyInfo BoolProperty::static_info()
 {
-  [](const Property&, std::size_t) { return ""; }
-};
+  return {
+    [](const Property&, std::size_t) { return ""; }
+  };
+}
+
+BoolProperty::BoolProperty(bool default_value)
+  : Property::Registrar<BoolProperty, TypedProperty<bool>>(default_value)
+{
+}
+
+BoolProperty::BoolProperty(const BoolProperty& other)
+  : Property::Registrar<BoolProperty, TypedProperty<bool>>(other)
+{
+}
 
 void BoolProperty::deserialize(AbstractDeserializer& deserializer, const Pointer& root)
 {

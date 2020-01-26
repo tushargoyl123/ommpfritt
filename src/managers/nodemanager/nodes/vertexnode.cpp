@@ -9,8 +9,14 @@
 namespace omm
 {
 
-const Node::Detail VertexNode::detail { {
-    { AbstractNodeCompiler::Language::GLSL, "" } } };
+StaticNodeInfo VertexNode::static_info()
+{
+  return {
+    {
+      { AbstractNodeCompiler::Language::GLSL, "" }
+    }
+  };
+}
 
 VertexNode::VertexNode(NodeModel& model)
   : Node(model)

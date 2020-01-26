@@ -10,7 +10,7 @@ namespace omm
 
 class Scene;
 
-class Path : public Object
+class Path : public Object::Registrar<Path>
 {
 public:
   explicit Path(Scene* scene);

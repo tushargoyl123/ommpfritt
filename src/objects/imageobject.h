@@ -6,7 +6,7 @@
 namespace omm
 {
 
-class ImageObject : public Object
+class ImageObject : public Object::Registrar<ImageObject>
 {
 public:
   explicit ImageObject(Scene* scene);

@@ -16,7 +16,7 @@ namespace omm
 {
 
 PythonConsole::PythonConsole(Scene& scene)
-  : Manager(QCoreApplication::translate("any-context", "PythonConsole"), scene)
+  : Manager::Registrar<PythonConsole>(QCoreApplication::translate("any-context", "PythonConsole"), scene)
 {
   setTitleBarWidget(std::make_unique<PythonConsoleTitleBar>(*this).release());
 

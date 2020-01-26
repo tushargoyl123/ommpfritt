@@ -70,7 +70,7 @@ namespace omm
 {
 
 BoundingBoxManager::BoundingBoxManager(Scene& scene)
-  : Manager(tr("Bounding Box Manager"), scene)
+  : Manager::Registrar<BoundingBoxManager>(tr("Bounding Box Manager"), scene)
   , m_ui(new ::Ui::BoundingBoxManager)
   , m_transform_points_helper(Space::Scene)
 {

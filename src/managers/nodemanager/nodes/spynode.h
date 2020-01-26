@@ -15,7 +15,7 @@ public:
 
   bool accepts_input_data_type(const QString& type, const InputPort& port) const override;
   void set_text(const QString& text);
-  static const Detail detail;
+  static StaticNodeInfo static_info();
 
 private:
   OrdinaryPort<PortType::Input>* m_port;

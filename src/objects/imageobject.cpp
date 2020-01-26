@@ -19,7 +19,7 @@ bool is_paged_image(const QString& filename)
 namespace omm
 {
 
-ImageObject::ImageObject(Scene* scene) : Object(scene)
+ImageObject::ImageObject(Scene* scene) : Object::Registrar<ImageObject>(scene)
 {
   static const auto category = QObject::tr("image");
   create_property<StringProperty>(FILEPATH_PROPERTY_KEY)
